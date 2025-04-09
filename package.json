@@ -1,0 +1,22 @@
+{
+  "name": "electron-tutorial",
+  "version": "1.0.0",
+  "description": "Electron tutorial, first touch",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "electron-tutorial"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "asiermarin",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^35.1.4"
+  }
+}
