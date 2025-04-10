@@ -2,6 +2,13 @@
 
 ## Contents
 
+- [electron-tutorial](#electron-tutorial)
+  - [Contents](#contents)
+  - [Pre-requirements](#pre-requirements)
+  - [Install](#install)
+  - [Start](#start)
+  - [Add view](#add-view)
+
 ## Pre-requirements
 
 - Node.js
