@@ -8,6 +8,9 @@
   - [Install](#install)
   - [Start](#start)
   - [Add view](#add-view)
+  - [Packaging -\> Electron Forge](#packaging---electron-forge)
+  - [Publish GitHub Release](#publish-github-release)
+  - [Auto Updated](#auto-updated)
 
 ## Pre-requirements
 
@@ -63,7 +66,8 @@ console.log('Hello from Electron 👋')
 </html>
 ```
 
-```main.js
+```
+main.js
 const { app, BrowserWindow } = require('electron')
 
 const createWindow = () => {
@@ -77,4 +81,80 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
   createWindow()
+```
+
+## Packaging -> Electron Forge
+
+Add Electron Forge:
+
+```
+npm install --save-dev @electron-forge/cli
+npx electron-forge import
+```
+
+Generate application executable:
+
+```
+npm run make
+```
+
+## Publish GitHub Release
+
+Install GitHub release package dependencies:
+
+```
+npm install --save-dev @electron-forge/publisher-github
+```
+
+Insert configuration in the publishers part in forge.config.ts:
+
+```
+module.exports = {
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'asiermarin',
+          name: 'electron-tutorial'
+        },
+        prerelease: false,
+        draft: true
+      }
+    }
+  ]
+}
+```
+
+Add new publish command:
+
+```
+  //...
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  //...
+```
+
+Run command:
+
+```
+npm run publish
+```
+
+## Auto Updated
+
+Install the dependence:
+
+```
+npm install update-electron-app
+```
+
+Add to main.js:
+
+```
+require('update-electron-app')()
 ```

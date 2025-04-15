@@ -6,10 +6,26 @@ module.exports = {
     asar: true,
   },
   rebuildConfig: {},
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'asiermarin',
+          name: 'electron-tutorial'
+        },
+        prerelease: false,
+        draft: true
+      }
+    }
+  ],
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        certificateFile: './cert.pfx',
+        certificatePassword: process.env.CERTIFICATE_PASSWORD
+      }
     },
     {
       name: '@electron-forge/maker-zip',

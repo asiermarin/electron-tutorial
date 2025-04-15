@@ -4,6 +4,10 @@
 // const { app, BrowserWindow } = require('electron/main')
 const { app, BrowserWindow, ipcMain } = require('electron')
 
+// const { updateElectronApp } = require('update-electron-app')
+// updateElectronApp()
+// console.log('update-electron-app export:', require('update-electron-app'))
+
 // include the Node.js 'path' module at the top of your file
 const path = require('node:path')
 
