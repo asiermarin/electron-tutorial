@@ -1,0 +1,46 @@
+{
+  "name": "electron-tutorial-azure",
+  "version": "1.0.0",
+  "description": "Demo for Azure Blob Storage",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asiermarin/electron-tutorial"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "build": {
+    "appId": "com.lantek360.licensing-trust",
+    "productName": "electron-tutorial-azure",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist"
+    ],
+    "publish": {
+      "provider": "generic",
+      "url": "https://<tu-cuenta>.blob.core.windows.net/<tu-contenedor>"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "author": "asiermarin",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.1.5",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "electron-log": "^5.3.3",
+    "electron-updater": "^6.6.2"
+  }
+}
